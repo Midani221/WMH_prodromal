@@ -1,4 +1,4 @@
-This is the code submission for my MSc.
+This is most of the code that I have used during my thesis for my MSc in Advanced Neuroimaging. I have created this to be part of my submission.
 The analysis was done in 4 main steps, first of all, the primary imaging patient sheets were prepared on excel and raw imaging data (DICOM format) was downloaded
 from the repository.
 This was followed by these steps:
@@ -25,3 +25,5 @@ This was followed by these steps:
    - You need to retrieve the files and make the 4D image using fsl merge, shown in extra steps
    - You need to create a mask, 5% mask example is shown.
    - Run fslrandomise_job.sh job. Decide on the computing requirement depending on number of files in 4D image. ~900 require at least 32 gbs.
+
+Creator: Dr AbdulRahman Al Midani
