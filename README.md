@@ -6,7 +6,7 @@ This was followed by these steps:
    - Run Mover_final.py to fix image locations
    - v_fixer to fix nomenclature for easy saving
    - bidsify_multiple to bidsify each session for each participant and save in bids format across all.
-   - If bidsify_multiple does not work, you can use single convertor for unusual cases.
+   - If bidsify_multiple does not work for some case, you can use manual conversion to NIFTI using MRIcrogl.exe.
 2. Pipeline run:
    - Pipeline run using bash on the HPC.
    - Collate the images if you need to download them for QC, then run the shiny app for QC to make it faster. There is QC integrated within the pipeline but it can
