@@ -38,7 +38,7 @@ if (!dir.exists(SCRIPT_DIR)) {
 }
 
 parse_subject_session <- function(folder_name) {
-  # Expected format: sub-52927_ses-V06
+  # Expected format: sub-xxxxxx_ses-Vxx
   m <- regexec("^(sub-[^_]+)_ses-([^_]+)$", folder_name, ignore.case = TRUE)
   hit <- regmatches(folder_name, m)[[1]]
   
