@@ -1,0 +1,50 @@
+# Make 4D image
+
+fslmerge -t results2mni_4D.nii.gz "${images[@]}"
+
+
+## make design matrix
+python design_mat.py
+
+
+
+
+## Change deisgn matrix to mat format
+for directory in designs/*; do
+    [[ -f "$directory/design.txt" ]] || continue
+
+    Text2Vest "$directory/design.txt" "$directory/design.mat"
+    Text2Vest "$directory/contrasts.txt" "$directory/design.con"
+done
+
+
+## Make design specific 4D images
+for directory in designs/*; do
+    [[ -f "$directory/image_list.txt" ]] || continue
+
+    mapfile -t images < "$directory/image_list.txt"
+
+    fslmerge \
+        -t "$directory/input_4D.nii.gz" \
+        "${images[@]}"
+done
+
+
+
+
+## Create mask 5%
+
+fslmaths results2mni_4D.nii.gz \
+    -Tmean WMH_prevalence.nii.gz
+
+fslmaths WMH_prevalence.nii.gz \
+    -thr 0.05 \
+    -bin WMH_mask_5percent.nii.gz
+
+## Create mask again
+fslmaths input_4D.nii.gz \
+    -Tmean WMH_prevalence_combined.nii.gz
+
+fslmaths WMH_prevalence_combined.nii.gz \
+    -thr 0.05 \
+    -bin WMH_mask_5percent_combined.nii.gz
