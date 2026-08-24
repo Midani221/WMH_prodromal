@@ -26,4 +26,4 @@ This was followed by these steps:
    - You need to create a mask, 5% mask example is shown.
    - Run fslrandomise_job.sh job. Decide on the computing requirement depending on number of files in 4D image. ~900 require at least 32 gbs.
 
-Creator: Dr AbdulRahman Al Midani
+Creator: To be added later
